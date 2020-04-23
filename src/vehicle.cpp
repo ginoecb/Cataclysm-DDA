@@ -4222,7 +4222,8 @@ bool vehicle::sufficient_wheel_config() const
     } else if( wheelcache.size() == 1 ) {
         //Has to be a stable wheel, and one wheel can only support a 1-3 tile vehicle
         if( !part_info( wheelcache.front() ).has_flag( "STABLE" ) ||
-            all_parts_at_location( part_location_structure ).size() > 3 ) {
+            all_parts_at_location( part_location_structure ).size() > 3 ||
+            part_info (wheelcache.front() ).durability <= 0) {
             return false;
         }
     }

@@ -633,11 +633,6 @@ int unfold_vehicle_iuse::use( player &p, item &it, bool, const tripoint & ) cons
         p.add_msg_if_player( _( unfold_msg ), it.tname() );
     }
     p.moves -= moves;
-    // Restore HP of parts if we stashed them previously.
-    if( it.has_var( "folding_bicycle_parts" ) ) {
-        // Brand new, no HP stored
-        return 1;
-    }
     std::istringstream veh_data;
     const auto data = it.get_var( "folding_bicycle_parts" );
     veh_data.str( data );
